@@ -9,6 +9,7 @@ Käyttöliittymä antaa käyttäjän määritellä efektien parametrit.
 ## Tietorakenteet
 - taulukko kuvien pixelien säilömiseen (kuva on periaatteessa jo taulukko väriarvoja)
 - pino kuvien säilömiseen (käyttöliittymä näyttää käyttäjälle pinon päällimmäisen kuvan, undo nappi poistaa pinon päällimäisen kuvan)
+
 Valitsin kyseiset tietorakenteet koska ne ovat mahdollisimman tehokkaat tavat säilöä paljon dataa (kuvat ovat usein monta megatavua).
 
 ## Aika- ja tilavaativuudet
