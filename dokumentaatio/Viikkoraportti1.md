@@ -6,5 +6,6 @@ Luin tällä viikolla paljon kuvankäsittelystä ja opin kuinka kernel filtereit
 Minulle jäi epäselväksi jos valitsemassani aiheessa on riittävästi mahdollisuuksia vertailla algoritmeja ja tietorakenteita.
 Ajattelin että lisäisin ohjelmaan filtereitä jos nykyiset ovat kurssille riittämättömät.
 Jotta filtereiden lisääminen olis helppoa, haluan tehdä ohjelmasta mahdollisimman modulaarisen.
+En ole vielä varma miten käsittelen eri tavoin pakattuja kuvatiedostoja (jpg, png,...).
 
 Aion aloittaa ohjelmoinin ensi viikolla. Jatkan myös kuvafiltereiden tutkimista.
