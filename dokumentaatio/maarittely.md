@@ -1,6 +1,6 @@
 # Määrittely
 Ohjelma käsittelee kuvia eri tavoilla (Gaussian blur, pixel sort, ja mahdollisesti muita).
-Käyttöliittymä antaa käyttäjän määritellä efektien parametrit.
+Käyttöliittymä antaa käyttäjän määritellä efektien parametrit. Huolena ovat suurikokoiset tiedostot.
 
 ## Algoritmit
 - tehokas Gaussian blur algoritmi (http://rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/) 
