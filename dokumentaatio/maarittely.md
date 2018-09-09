@@ -21,4 +21,5 @@ https://computergraphics.stackexchange.com/questions/39/how-is-gaussian-blur-imp
 https://en.wikipedia.org/wiki/Gaussian_blur
 
 http://datamoshing.com/2016/06/16/how-to-glitch-images-using-pixel-sorting/
+
 http://rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/
