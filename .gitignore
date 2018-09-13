@@ -1,2 +1,6 @@
 .gradle
 /imgfx/.nb-gradle/
+.nb-gradle/
+/imgfx/build/
+linx.md
+tst.jpg
