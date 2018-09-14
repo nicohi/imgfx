@@ -1,4 +1,5 @@
 .gradle
+/imgfx/nbproject/
 /imgfx/.nb-gradle/
 .nb-gradle/
 /imgfx/build/

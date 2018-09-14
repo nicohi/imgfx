@@ -14,7 +14,7 @@ public class PixelSort {
 	 * @param img
 	 * @return
 	 */
-	public void redSort(int[][] img) {
+	public static void redSort(int[][] img) {
 		//TODO implement own sort
 		for (int y = 0; y < img.length; y++) {
 			Arrays.sort(img[y]);

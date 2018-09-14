@@ -6,12 +6,21 @@ mainClassName = 'nicohi.imgfx.Main'
 
 //sourceSets.main.java.srcDirs = ['src/main']
 
+
 jacocoTestReport {
     reports {
         xml.enabled true
         html.enabled true
     }
 }
+
+repositories { jcenter() }
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
+}
+
 
 jar {
     manifest {

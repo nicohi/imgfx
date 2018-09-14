@@ -12,13 +12,13 @@ import javax.imageio.ImageIO;
  * @author nicohi
  */
 public class Picture {
-	int[][] picture;			
-
-	public Picture(int x, int y) {
-		this.picture = new int[x][y];
-	}
 	
-	public int[][] fromPath(URL path)	{
+	/**
+	 * Reads image from path into a new int array representig RGB
+	 * @param path
+	 * @return
+	 */
+	public static int[][] fromPath(URL path)	{
 		try {
 			BufferedImage img = ImageIO.read(path);
 			return bufferedImageToPicture(img);
@@ -28,7 +28,12 @@ public class Picture {
 		return new int[0][0];
 	}
 
-	public int[][] bufferedImageToPicture(BufferedImage image) {
+	/**
+	 * Converts BufferedImage into a new array of int representing RGB
+	 * @param image
+	 * @return
+	 */
+	public static int[][] bufferedImageToPicture(BufferedImage image) {
 		//TODO 
 		final byte[] pixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
 		final int width = image.getWidth();
