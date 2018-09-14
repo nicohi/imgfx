@@ -29,7 +29,7 @@ public class Picture {
 	}
 
 	public int[][] bufferedImageToPicture(BufferedImage image) {
-		//TODO not final version
+		//TODO 
 		final byte[] pixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
 		final int width = image.getWidth();
 		final int height = image.getHeight();
