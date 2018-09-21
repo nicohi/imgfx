@@ -71,7 +71,7 @@ public class PixelSort {
 				if ((rgb == 0 || x == mask[0].length - 1) && s) {
 					t = x;
 					s = false;
-					sortRange(b, t, img[y]);
+					sortRange(b, t+1, img[y]);
 				}
 			}
 		}

@@ -20,7 +20,11 @@ public class Main {
 			Picture.writeToFile(new File("out.png"), pic);
 			
 		} catch (Exception ex) {
-			System.out.println("no file given or invalid file: " + ex);
+			//System.out.println("no file given or invalid file: " + ex);
+			int[][] img1 = {{2, 3, 1}, {4, 2, 1}};
+			int[][] img2 = {{1, 2, 3}, {1, 2, 4}};
+			PixelSort.tSort(0, img1);
+			System.out.println(img1[1][0] +" "+ img1[1][1]);
 		}
 	}
 
