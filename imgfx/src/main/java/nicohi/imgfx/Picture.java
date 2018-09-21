@@ -19,7 +19,7 @@ public class Picture {
 	/**
 	 * Reads image from path into a new int array representing RGB
 	 * @param path
-	 * @return
+	 * @return int[][] picture
 	 */
 	public static int[][] readFromPath(URL path) {
 		try {
@@ -31,7 +31,13 @@ public class Picture {
 		return new int[0][0];
 	}
 
-	public static boolean writeToPath(File file, int[][] pic) {
+	/**
+	 * Write a picture to a file.
+	 * @param file
+	 * @param pic
+	 * @return true if write success
+	 */
+	public static boolean writeToFile(File file, int[][] pic) {
 		try {
 			BufferedImage bufImg = pictureToBufferedImage(pic);
 			return ImageIO.write(bufImg, "png", file);
@@ -42,6 +48,11 @@ public class Picture {
 		return false;
 	}
 
+	/**
+	 * Convert a picture to a BufferedImage.
+	 * @param pic
+	 * @return BufferedImage
+	 */
 	public static BufferedImage pictureToBufferedImage(int[][] pic) {
 		final int width = pic[0].length;
 		final int height = pic.length;
@@ -65,19 +76,18 @@ public class Picture {
 			}
 		}
 		
-		BufferedImage res = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-		WritableRaster raster = Raster.createWritableRaster(res.getSampleModel(), null);
+		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		WritableRaster raster = Raster.createWritableRaster(result.getSampleModel(), null);
 		raster.setPixels(0, 0, width, height, pixels);
-		res.setData(raster);
-		res.flush();
-		return res;
-
+		result.setData(raster);
+		result.flush();
+		return result;
 	}
 
 	/**
-	 * Converts BufferedImage into a new array of int representing RGB
+	 * Converts BufferedImage into a new array of int representing ARGB
 	 * @param image
-	 * @return
+	 * @return int[][] picture
 	 */
 	public static int[][] bufferedImageToPicture(BufferedImage image) {
 		//TODO 

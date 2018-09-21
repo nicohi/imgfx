@@ -17,7 +17,7 @@ public class Main {
 			int[][] pic = Picture.readFromPath(f);
 			System.out.println(pic.length + " " + pic[0].length);
 			PixelSort.tSort(Integer.parseInt(args[1]), pic);
-			Picture.writeToPath(new File("out.jpg"), pic);
+			Picture.writeToFile(new File("out.png"), pic);
 			
 		} catch (Exception ex) {
 			System.out.println("no file given or invalid file: " + ex);

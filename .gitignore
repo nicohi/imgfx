@@ -4,5 +4,5 @@
 .nb-gradle/
 /imgfx/build/
 linx.md
-tst.jpg
-out.jpg
+*.jpg
+*.png

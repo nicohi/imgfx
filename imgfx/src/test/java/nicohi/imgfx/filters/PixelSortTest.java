@@ -24,5 +24,22 @@ public class PixelSortTest {
 		PixelSort.redSort(img1);
 		assertEquals(img1, img2);
 	}
+
+	@Test
+	public void sortRangeTest1() {
+		int[] img1 = {2,3,1,1};
+		int[] img2 = {1,2,3,1};
+		PixelSort.sortRange(0, 2, img1);
+		assertEquals(img1, img2);
+	}
+
+	@Test
+	public void binaryThresholdTest1() {
+		int[][] img1 = {{1,3,0}, {1,0,2}};
+		int[][] img2 = {{0xFF000000,0xFFFFFFFF,0xFF000000}, {0xFF000000,0xFF000000,0xFFFFFFFF}};
+		PixelSort.applyF(PixelSort.binaryThreshold(2), img1);
+		assertEquals(img1[0], img2[0]);
+		assertEquals(img1[1], img2[1]);
+	}
 	
 }

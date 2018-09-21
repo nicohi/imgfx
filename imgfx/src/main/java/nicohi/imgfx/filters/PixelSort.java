@@ -12,7 +12,6 @@ public class PixelSort {
 	/**
 	 * Sorts horizontal rows of image based on the red value of each pixel
 	 * @param img
-	 * @return
 	 */
 	public static void redSort(int[][] img) {
 		//TODO implement own sort
@@ -21,6 +20,11 @@ public class PixelSort {
 		}	
 	}	
 
+	/**
+	 * Copy a 2d array to a new 2d array. Returns the new array.
+	 * @param img
+	 * @return int[][] picuture
+	 */
 	public static int[][] copyImg(int[][] img) {
 		int[][] copy = new int[img.length][img[0].length];
 		for (int y = 0; y < img.length; y++) {
@@ -31,6 +35,11 @@ public class PixelSort {
 		return copy;
 	}
 
+	/**
+	 * Copy the contents of one array to the other.
+	 * @param in
+	 * @param out
+	 */
 	public static void copyTo(int[][] in, int[][] out) {
 		for (int y = 0; y < in.length; y++) {
 			for (int x = 0; x < in[0].length; x++) {
@@ -39,6 +48,11 @@ public class PixelSort {
 		}	
 	}
 
+	/**
+	 * Apply pixel sort to an image with a brightness threshold.
+	 * @param tr
+	 * @param img
+	 */
 	public static void tSort(int tr, int[][] img) {
 		int[][] mask = copyImg(img);
 		applyF(binaryThreshold(tr), mask);
@@ -63,7 +77,14 @@ public class PixelSort {
 		}
 	}
 
+	/**
+	 * Sorts a range of indices in an array.
+	 * @param b
+	 * @param t
+	 * @param row
+	 */
 	public static void sortRange(int b, int t, int[] row) {
+		//TODO better sort
 		//System.out.println("sorting range "+b+"-"+t);
 		if (b >= t) return;
 		int from = b;
@@ -79,6 +100,11 @@ public class PixelSort {
 		sortRange(b + 1, t, row);
 	}
 
+	/**
+	 * Apply a unary operator to all pixel values.
+	 * @param f
+	 * @param img
+	 */
 	public static void applyF(IntUnaryOperator f, int[][] img) {
 		for (int y = 0; y < img.length; y++) {
 			for (int x = 0; x < img[0].length; x++) {
@@ -87,6 +113,11 @@ public class PixelSort {
 		}
 	}
 
+	/**
+	 * Apply a unary operator and sort.
+	 * @param f
+	 * @param img
+	 */
 	public static void fSort(IntUnaryOperator f, int[][] img) {
 		applyF(f, img);
 		for (int y = 0; y < img.length; y++) {
@@ -94,18 +125,28 @@ public class PixelSort {
 		}
 	}
 
+	/**
+	 * Returns a unary operator which turns any pixel under the threshold value in brightness to black and any above to white.
+	 * @param min
+	 * @return
+	 */
 	public static IntUnaryOperator binaryThreshold(int min) {
 		return new IntUnaryOperator() {
 			@Override
 			public int applyAsInt(int op) {
 				int br = op & 0xFFFFFF;
 				br = ((br & 0xFF0000) >> 16) + ((br & 0xFF00) >> 8) + (br & 0xFF);
-				if (br > min) return 0xFFFFFFFF;
+				if (br >= min) return 0xFFFFFFFF;
 				return 0xFF000000;
 			}
 		};
 	}
 
+	/**
+	 * Pixels under threshold value are made black.
+	 * @param min
+	 * @return int[][] ARGB picture
+	 */
 	public static IntUnaryOperator threshold(int min) {
 		return new IntUnaryOperator() {
 			@Override
@@ -113,11 +154,17 @@ public class PixelSort {
 				int br = op & 0xFFFFFF;
 				br = ((br & 0xFF0000) >> 16) + ((br & 0xFF00) >> 8) + (br & 0xFF);
 				if (br > min) return op;
-				return 0;
+				return 0xFF000000;
 			}
 		};
 	}
 	
+	/**
+	 * Returns a unary operator which turns a range of brightness values to white.
+	 * @param min
+	 * @param max
+	 * @return
+	 */
 	public IntUnaryOperator innerRange(int min, int max) {
 		return null;
 	}
