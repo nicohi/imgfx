@@ -7,4 +7,4 @@ PixelSort-luokan metodien avulla pixelsort efektiä voi käyttää tietyn kirkka
 
 Kuvatiedoston muuntaminen int[][] taulukoksi ja takaisin tiedostoksi oli haastavempaa kuin oletin. Tämä toiminto toimii kuitenkin nyt hyvin.
 
-Ensi viikolla siirrän joitain PixelSort-luokan metodeja uuteen yleisempään luokkaan. Lisään ohjelmaan myös nopean 1D-Gaussian blur filtterin sekä hitaan 2D version.
+Ensi viikolla siirrän joitain PixelSort-luokan metodeja uuteen yleisempään luokkaan. Lisään ohjelmaan myös nopean 1D-Gaussian blur filtterin sekä hitaan 2D version. Parannan myös järjestämismetodeja PixelSort-luokassa.
