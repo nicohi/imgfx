@@ -34,21 +34,6 @@ public class PixelSortTest {
 	}
 
 	@Test
-	public void copyImgTest1() {
-		int[][] img2 = {{1,2,3}, {1,2,4}};
-		int[][] img1 = PixelSort.copyImg(img2);
-		assertArrayEquals(img2, img1);
-	}
-
-	@Test
-	public void copyImgToTest1() {
-		int[][] img2 = {{1,2,3}, {1,2,4}};
-		int[][] img1 = {{0,3,3}, {2,2,3}};
-		PixelSort.copyTo(img2, img1);
-		assertArrayEquals(img2, img1);
-	}
-	
-	@Test
 	public void sortRangeTest1() {
 		int[] img1 = {2,3,1,1};
 		int[] img2 = {1,2,3,1};
