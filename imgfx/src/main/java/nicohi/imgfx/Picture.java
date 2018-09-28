@@ -131,6 +131,26 @@ public class Picture {
 		return result;
 	}
 
+	public static int[][] rotateRight(int[][] img) {
+		int[][] res = new int[img[0].length][img.length];
+		for (int y = 0; y < res.length; y++) {
+			for (int x = 0; x < res[0].length; x++) {
+				res[y][x] = img[(x - res[0].length) * -1][y];
+			}
+		}
+		return res;
+	}
+
+	public static int[][] rotateLeft(int[][] img) {
+		int[][] res = new int[img[0].length][img.length];
+		for (int y = 0; y < res.length; y++) {
+			for (int x = 0; x < res[0].length; x++) {
+				res[y][x] = img[(x - res[0].length) * -1][(y - res.length) * -1];
+			}
+		}
+		return res;
+	}
+
 	/**
 	 * Copy a 2d array to a new 2d array. Returns the new array.
 	 * @param img
