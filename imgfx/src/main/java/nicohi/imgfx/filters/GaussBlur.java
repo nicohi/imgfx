@@ -7,12 +7,25 @@ import nicohi.imgfx.Picture;
  */
 public class GaussBlur {
 	//TODO		
+
+	/**
+	 *
+	 * @param l
+	 * @param stdev
+	 * @return
+	 */
 	
 	public static int[][] kernel2D(int l, int stdev) {
 		//TODO
 		return null;	
 	}
 
+	/**
+	 * Apply given 1D kernel to image
+	 * @param img
+	 * @param k
+	 * @return new image
+	 */
 	public static int[][] applyKernel1D(int[][] img, int[] k) {
 		int[][] res = new int[img.length][img[0].length];
 		for (int y = 0; y < res.length; y++) {
@@ -34,6 +47,12 @@ public class GaussBlur {
 		return res;
 	}
 
+	/**
+	 * Add the rgb values of 2 pixels (max 255 per channel)
+	 * @param p1
+	 * @param p2
+	 * @return
+	 */
 	public static int addPixels(int p1, int p2) {
 		int a = Math.min(((p1 & 0xFF000000) + (p2 & 0xFF000000)) / 2, 0xFF000000);
 		int r1 = (p1 & 0x00FF0000) >> 16;
@@ -49,6 +68,12 @@ public class GaussBlur {
 				+ (Math.min((int) (b1 + b2), 0xFF));
 	}
 
+	/**
+	 * Multiply rgb values by double
+	 * @param p1
+	 * @param fac
+	 * @return
+	 */
 	public static int multiplyPixel(int p1, double fac) {
 		int a = p1 & 0xFF000000;
 		int r = (p1 & 0x00FF0000) >> 16;
@@ -63,6 +88,11 @@ public class GaussBlur {
 
 	}
 	
+	/**
+	 * New 1D gaussian kernel
+	 * @param stdev
+	 * @return
+	 */
 	public static int[] kernel1D(double stdev) {
 		//TODO implement proper discrete version
 		//In practice only pixels up to six standard deviations away need to be included. https://en.wikipedia.org/wiki/Gaussian_blur

@@ -131,6 +131,11 @@ public class Picture {
 		return result;
 	}
 
+	/**
+	 * Rotate image 90deg right.
+	 * @param img
+	 * @return rotated image
+	 */
 	public static int[][] rotateRight(int[][] img) {
 		int[][] res = new int[img[0].length][img.length];
 		for (int y = 0; y < res.length; y++) {
@@ -141,6 +146,12 @@ public class Picture {
 		return res;
 	}
 
+	/**
+	 * 
+	 * Rotate image 90deg left.
+	 * @param img
+	 * @return
+	 */
 	public static int[][] rotateLeft(int[][] img) {
 		int[][] res = new int[img[0].length][img.length];
 		for (int y = 0; y < res.length; y++) {
