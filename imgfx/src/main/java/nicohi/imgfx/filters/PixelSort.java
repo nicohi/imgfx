@@ -2,6 +2,7 @@ package nicohi.imgfx.filters;
 
 import java.util.Arrays;
 import java.util.function.IntUnaryOperator;
+import nicohi.imgfx.Picture;
 
 /**
  *
@@ -21,40 +22,12 @@ public class PixelSort {
 	}	
 
 	/**
-	 * Copy a 2d array to a new 2d array. Returns the new array.
-	 * @param img
-	 * @return int[][] picuture
-	 */
-	public static int[][] copyImg(int[][] img) {
-		int[][] copy = new int[img.length][img[0].length];
-		for (int y = 0; y < img.length; y++) {
-			for (int x = 0; x < img[0].length; x++) {
-				copy[y][x] = img[y][x];
-			}
-		}	
-		return copy;
-	}
-
-	/**
-	 * Copy the contents of one array to the other.
-	 * @param in
-	 * @param out
-	 */
-	public static void copyTo(int[][] in, int[][] out) {
-		for (int y = 0; y < in.length; y++) {
-			for (int x = 0; x < in[0].length; x++) {
-				out[y][x] = in[y][x];
-			}
-		}	
-	}
-
-	/**
 	 * Apply pixel sort to an image with a brightness threshold.
 	 * @param tr
 	 * @param img
 	 */
 	public static void tSort(int tr, int[][] img) {
-		int[][] mask = copyImg(img);
+		int[][] mask = Picture.copyImg(img);
 		applyF(binaryThreshold(tr), mask);
 		
 		for (int y = 0; y < mask.length; y++) {

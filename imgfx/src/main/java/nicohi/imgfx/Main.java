@@ -3,6 +3,8 @@ package nicohi.imgfx;
 import nicohi.imgfx.Picture;
 import java.io.File;
 import java.net.URL;
+import java.util.Arrays;
+import nicohi.imgfx.filters.GaussBlur;
 import nicohi.imgfx.filters.PixelSort;
 
 /**
@@ -13,11 +15,20 @@ public class Main {
 
 	public static void main(String [] args)	{
 		try {
-			URL f = new File(args[0]).toURI().toURL();
-			int[][] pic = Picture.readFromPath(f);
-			System.out.println(pic.length + " " + pic[0].length);
-			PixelSort.tSort(Integer.parseInt(args[1]), pic);
-			Picture.writeToFile(new File("out.png"), pic);
+			if (args[0].equals("psort")) {
+				URL f = new File(args[1]).toURI().toURL();
+				int[][] pic = Picture.readFromPath(f);
+				System.out.println(pic.length + " " + pic[0].length);
+				PixelSort.tSort(Integer.parseInt(args[2]), pic);
+				Picture.writeToFile(new File("out.png"), pic);
+			}
+			if (args[0].equals("gblur")) {
+				//URL f = new File(args[1]).toURI().toURL();
+				//int[][] pic = Picture.readFromPath(f);
+				//System.out.println(pic.length + " " + pic[0].length);
+				System.out.println(Arrays.toString(GaussBlur.kernel1D(Double.parseDouble(args[1]))));
+				//Picture.writeToFile(new File("out.png"), pic);
+			}
 			
 		} catch (Exception ex) {
 			//System.out.println("no file given or invalid file: " + ex);
