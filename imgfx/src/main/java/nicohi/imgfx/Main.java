@@ -23,19 +23,23 @@ public class Main {
 				Picture.writeToFile(new File("out.png"), pic);
 			}
 			if (args[0].equals("gblur")) {
-				//URL f = new File(args[1]).toURI().toURL();
-				//int[][] pic = Picture.readFromPath(f);
+				URL f = new File(args[1]).toURI().toURL();
+				int[][] pic = Picture.readFromPath(f);
+				//System.out.println(Arrays.toString(pic));
+				int[][] res = GaussBlur.applyKernel1D(pic, GaussBlur.kernel1D(Double.parseDouble(args[2])));
+				//int[][] res = GaussBlur.applyKernel1D(Picture.rotateRight(pic), GaussBlur.kernel1D(Double.parseDouble(args[2])));
 				//System.out.println(pic.length + " " + pic[0].length);
-				System.out.println(Arrays.toString(GaussBlur.kernel1D(Double.parseDouble(args[1]))));
-				//Picture.writeToFile(new File("out.png"), pic);
+				//System.out.println(Arrays.toString(GaussBlur.kernel1D(Double.parseDouble(args[1]))));
+				Picture.writeToFile(new File("out.png"), res);
 			}
 			
 		} catch (Exception ex) {
 			//System.out.println("no file given or invalid file: " + ex);
-			int[][] img1 = {{2, 3, 1}, {4, 2, 1}};
-			int[][] img2 = {{1, 2, 3}, {1, 2, 4}};
-			PixelSort.tSort(0, img1);
-			System.out.println(img1[1][0] +" "+ img1[1][1]);
+			System.out.println(ex);
+			//int[][] img1 = {{2, 3, 1}, {4, 2, 1}};
+			//int[][] img2 = {{1, 2, 3}, {1, 2, 4}};
+			//PixelSort.tSort(0, img1);
+			//System.out.println(img1[1][0] +" "+ img1[1][1]);
 		}
 	}
 

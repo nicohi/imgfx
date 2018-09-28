@@ -14,20 +14,52 @@ public class GaussBlur {
 	}
 
 	public static int[][] applyKernel1D(int[][] img, int[] k) {
-		int[][] res = new int[img[0].length][img[0].length];
+		int[][] res = new int[img.length][img[0].length];
 		for (int y = 0; y < res.length; y++) {
 			for (int x = 0; x < res[0].length; x++) {
+				int p = 0xFF000000;
 				//TODO
-				int p ;
+				for (int i = 0; i < k.length; i++) {
+					int os = k.length / 2;
+					int xk = x - os + i;
+					if (xk < 0 || xk >= img[0].length) 
+						//if kernel is on edge of img
+						p = addPixels(p, multiplyPixel(img[y][x], 1 / k[i]));
+					else
+						p = addPixels(p, multiplyPixel(img[y][xk], 1 / k[i]));
+				}
+				res[y][x] = p;
 			}
 		}
 		return res;
 	}
 
-	public static int multiplyPixel(int p) {
-		//TODO
-		int r = p;
-		return 0;
+	public static int addPixels(int p1, int p2) {
+		int a = Math.min(((p1 & 0xFF000000) + (p2 & 0xFF000000)) / 2, 0xFF000000);
+		int r1 = (p1 & 0x00FF0000) >> 16;
+		int g1 = (p1 & 0x0000FF00) >> 8;
+		int b1 = p1 & 0x000000FF;
+
+		int r2 = (p2 & 0x00FF0000) >> 16;
+		int g2 = (p2 & 0x0000FF00) >> 8;
+		int b2 = p2 & 0x000000FF;
+
+		return a + (Math.min((int) (r1 + r2), 0xFF) << 16)
+				+ (Math.min((int) (g1 + g2), 0xFF) << 8)
+				+ (Math.min((int) (b1 + b2), 0xFF));
+	}
+
+	public static int multiplyPixel(int p1, double fac) {
+		int a = p1 & 0xFF000000;
+		int r = (p1 & 0x00FF0000) >> 16;
+		int g = (p1 & 0x0000FF00) >> 8;
+		int b = p1 & 0x000000FF;
+
+		int p2 = a + (Math.min((int) (r * fac), 0xFF) << 16)
+				+ (Math.min((int) (g * fac), 0xFF) << 8)
+				+ (Math.min((int) (b * fac), 0xFF));
+
+		return p2;
 
 	}
 	

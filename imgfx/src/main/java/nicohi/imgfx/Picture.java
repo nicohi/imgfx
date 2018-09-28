@@ -135,7 +135,7 @@ public class Picture {
 		int[][] res = new int[img[0].length][img.length];
 		for (int y = 0; y < res.length; y++) {
 			for (int x = 0; x < res[0].length; x++) {
-				res[y][x] = img[(x - res[0].length) * -1][y];
+				res[y][x] = img[(x - res[0].length - 1) * -1][y];
 			}
 		}
 		return res;
@@ -154,7 +154,7 @@ public class Picture {
 	/**
 	 * Copy a 2d array to a new 2d array. Returns the new array.
 	 * @param img
-	 * @return int[][] picuture
+	 * @return int[][] picture
 	 */
 	public static int[][] copyImg(int[][] img) {
 		int[][] copy = new int[img.length][img[0].length];
