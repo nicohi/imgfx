@@ -26,7 +26,7 @@ public class Main {
 				URL f = new File(args[1]).toURI().toURL();
 				int[][] pic = Picture.readFromPath(f);
 				//System.out.println(Arrays.toString(pic));
-				int[][] res = GaussBlur.applyKernel1D(pic, GaussBlur.kernel1D(Double.parseDouble(args[2])));
+				int[][] res = GaussBlur.applyKernel1D(pic, GaussBlur.kernel1D(Integer.parseInt(args[2])));
 				//int[][] res = GaussBlur.applyKernel1D(Picture.rotateRight(pic), GaussBlur.kernel1D(Double.parseDouble(args[2])));
 				//System.out.println(pic.length + " " + pic[0].length);
 				//System.out.println(Arrays.toString(GaussBlur.kernel1D(Double.parseDouble(args[1]))));

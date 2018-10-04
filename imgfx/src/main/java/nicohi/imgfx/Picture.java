@@ -136,31 +136,31 @@ public class Picture {
 	 * @param img
 	 * @return rotated image
 	 */
-	public static int[][] rotateRight(int[][] img) {
-		int[][] res = new int[img[0].length][img.length];
-		for (int y = 0; y < res.length; y++) {
-			for (int x = 0; x < res[0].length; x++) {
-				res[y][x] = img[(x - res[0].length - 1) * -1][y];
-			}
-		}
-		return res;
-	}
-
-	/**
-	 * 
-	 * Rotate image 90deg left.
-	 * @param img
-	 * @return
-	 */
-	public static int[][] rotateLeft(int[][] img) {
-		int[][] res = new int[img[0].length][img.length];
-		for (int y = 0; y < res.length; y++) {
-			for (int x = 0; x < res[0].length; x++) {
-				res[y][x] = img[(x - res[0].length) * -1][(y - res.length) * -1];
-			}
-		}
-		return res;
-	}
+//	public static int[][] rotateRight(int[][] img) {
+//		int[][] res = new int[img[0].length][img.length];
+//		for (int y = 0; y < res.length; y++) {
+//			for (int x = 0; x < res[0].length; x++) {
+//				res[y][x] = img[(x - res[0].length - 1) * -1][y];
+//			}
+//		}
+//		return res;
+//	}
+//
+//	/**
+//	 * 
+//	 * Rotate image 90deg left.
+//	 * @param img
+//	 * @return
+//	 */
+//	public static int[][] rotateLeft(int[][] img) {
+//		int[][] res = new int[img[0].length][img.length];
+//		for (int y = 0; y < res.length; y++) {
+//			for (int x = 0; x < res[0].length; x++) {
+//				res[y][x] = img[(x - res[0].length) * -1][(y - res.length) * -1];
+//			}
+//		}
+//		return res;
+//	}
 
 	/**
 	 * Copy a 2d array to a new 2d array. Returns the new array.
@@ -188,5 +188,17 @@ public class Picture {
 				out[y][x] = in[y][x];
 			}
 		}	
+	}
+
+	public static int setR(int p, int r) {
+		return (p & 0xFF00FFFF) + (r & 0x00FF0000);
+	}
+
+	public static int setG(int p, int g) {
+		return (p & 0xFFFF00FF) + (g & 0x0000FF00);
+	}
+
+	public static int setB(int p, int b) {
+		return (p & 0xFFFFFF00) + (b & 0x000000FF);
 	}
 }
