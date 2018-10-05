@@ -18,10 +18,18 @@ public class PixelSortTest {
 	}
 
 	@Test
-	public void tSortTest1() {
+	public void pixelMergeSortTest1() {
 		int[][] img1 = {{2,3,1}, {4,2,1}};
 		int[][] img2 = {{1,2,3}, {1,2,4}};
-		PixelSort.tSort(0, img1);
+		PixelSort.pixelMergeSortThreshold(0, img1);
+		assertArrayEquals(img2, img1);
+	}
+
+	@Test
+	public void pixelSelSortTest1() {
+		int[][] img1 = {{2,3,1}, {4,2,1}};
+		int[][] img2 = {{1,2,3}, {1,2,4}};
+		PixelSort.pixelSelSortThreshold(0, img1);
 		assertArrayEquals(img2, img1);
 	}
 	
@@ -34,10 +42,18 @@ public class PixelSortTest {
 	}
 
 	@Test
-	public void sortRangeTest1() {
+	public void selSortRangeTest1() {
 		int[] img1 = {2,3,1,1};
 		int[] img2 = {1,2,3,1};
-		PixelSort.sortRange(0, 3, img1);
+		PixelSort.selSortRange(0, 3, img1);
+		assertArrayEquals(img2, img1);
+	}
+
+	@Test
+	public void mergeSortRangeTest1() {
+		int[] img1 = {2,3,1,1};
+		int[] img2 = {1,2,3,1};
+		PixelSort.mergeSortRange(0, 3, img1);
 		assertArrayEquals(img2, img1);
 	}
 
