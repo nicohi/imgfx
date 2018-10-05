@@ -21,15 +21,13 @@ public class GaussBlur {
 		return null;	
 	}
 
-	public static int[][] gaussianBlur1D(int[][] img, int w, int iter) {
+	public static int[][] gaussianBlur1D(int[][] img, int w) {
 		int[] k = kernel1D2(w);
 		int [][] res = img;
-		for (int i = 0; i < iter; i++) {
-			res = applyKernel1D(img, k);
-			res = Picture.rotateRight(res);
-			res = applyKernel1D(res, k);
-			res = Picture.rotateLeft(res);
-		}
+		res = applyKernel1D(img, k);
+		res = Picture.rotateRight(res);
+		res = applyKernel1D(res, k);
+		res = Picture.rotateLeft(res);
 		return res;
 	}
 
