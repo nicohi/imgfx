@@ -2,7 +2,7 @@
 A program for manipulating images with a variety of filters or effects.
 [testaus](dokumentaatio/testaus.md)
 
-# Usage instructions (subject to change)
+# Usage instructions
 Requires gradle and java.
 ```
 $ git clone https://github.com/nicohi/imgfx
@@ -11,17 +11,17 @@ $ gradle build
 ```
 To run benchmark:
 ```
-java -jar build/libs/imgfx.jar bench <path to picture>
+$ java -jar build/libs/imgfx.jar bench <path to picture>
 ```
 
 To run gaussian blur:
 ```
-java -jar build/libs/imgfx.jar gblur <path to picture> <a number (1-50)>
+$ java -jar build/libs/imgfx.jar gblur <path to picture> <a number (1-50)>
 ```
 
 To run pixelsort:
 ```
-java -jar build/libs/imgfx.jar psort <path to picture> <a number (0-255)>
+$ java -jar build/libs/imgfx.jar psort <path to picture> <a number (0-255)>
 ```
 
 # Weekly reports
