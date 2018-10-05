@@ -9,7 +9,8 @@ import nicohi.imgfx.Picture;
  * @author nicohi
  */
 public class PixelSort {
-
+    //TODO add generic comparators to sort
+	
 	/**
 	 * Sorts horizontal rows of image based on the red value of each pixel
 	 * @param img
