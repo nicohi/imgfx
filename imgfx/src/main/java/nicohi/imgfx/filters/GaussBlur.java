@@ -1,5 +1,6 @@
 package nicohi.imgfx.filters;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import nicohi.imgfx.Picture;
 /**
@@ -15,10 +16,21 @@ public class GaussBlur {
 	 * @param stdev
 	 * @return
 	 */
-	
 	public static int[][] kernel2D(int l, int stdev) {
 		//TODO
 		return null;	
+	}
+
+	public static int[][] gaussianBlur1D(int[][] img, int w, int iter) {
+		int[] k = kernel1D2(w);
+		int [][] res = img;
+		for (int i = 0; i < iter; i++) {
+			res = applyKernel1D(img, k);
+			res = Picture.rotateRight(res);
+			res = applyKernel1D(res, k);
+			res = Picture.rotateLeft(res);
+		}
+		return res;
 	}
 
 	/**
@@ -33,11 +45,13 @@ public class GaussBlur {
 		for (int y = 0; y < res.length; y++) {
 			for (int x = 0; x < res[0].length; x++) {
 				int a = img[y][x] & 0xFF000000;
-				int accR = 0;
-				int accG = 0;
-				int accB = 0;
-				int wSum = 0;
+				double accR = 0;
+				double accG = 0;
+				double accB = 0;
+				double wSum = 0;
 				for (int i = 0; i < k.length; i++) {
+					//System.out.println(Double.MAX_VALUE);
+					//if (accR < 0) System.out.println(accR);
 					int os = k.length / 2;
 					int xk = x - os + i;
 					if (xk < 0 || xk >= img[0].length) xk = x;
@@ -47,12 +61,12 @@ public class GaussBlur {
 					accB += (img[y][xk] & 0x000000FF) * k[i];
 					wSum += k[i];
 				}
-				accR = Math.min(accR / wSum, 0x00FF0000);
-				accG = Math.min(accG / wSum, 0x0000FF00);
-				accB = Math.min(accB / wSum, 0x000000FF);
-				//System.out.println("in: " + Integer.toHexString(img[y][x]));
-				//System.out.println("out: " + Integer.toHexString(a + accR + accG + accB));
-				res[y][x] = addPixels(a, accR + accG + accB);
+				int accRi = Math.min(((int) (accR / wSum)) & 0x00FF0000 , 0x00FF0000);
+				int accGi = Math.min(((int) (accG / wSum)) & 0x0000FF00 , 0x0000FF00);
+				int accBi = Math.min(((int) (accB / wSum)) & 0x000000FF , 0x000000FF);
+				//System.out.println("in:  " + Integer.toHexString(img[y][x]));
+				//System.out.println("out: " + Long.toHexString(accR / wSum));
+				res[y][x] = (int) (a + accRi + accGi + accBi);
 			}
 		}
 		return res;
@@ -113,17 +127,19 @@ public class GaussBlur {
 		int[] k = new int[w];
 
 		int d = w - 1;
-		int df = factorial(d);
+		BigInteger df = factorial(BigInteger.valueOf(d));
 		for (int i = 0; i < w; i++) {
-			k[i] = df / (factorial(i) * factorial(d - i));
+			k[i] = (df.divide((factorial(BigInteger.valueOf(i))
+					.multiply(factorial(BigInteger.valueOf(d - i)))))).intValue();
 		}
 		//System.out.println(Arrays.toString(k));	
 		return k;
 	}
 
-	public static int factorial(int i) {
-		if (i <= 1) return 1; 
-		return i * factorial(i - 1);
+	public static BigInteger factorial(BigInteger i) {
+		//System.out.println(i);
+		if (i.equals(BigInteger.ZERO)) return BigInteger.ONE; 
+		return i.multiply(factorial(i.subtract(BigInteger.ONE)));
 	}
 	
 	/**
@@ -145,8 +161,8 @@ public class GaussBlur {
 		for (int i = 0; i < width; i++) {
 			double expC = Math.pow(i - width / 2, 2) * expIC;
 			double eFac = Math.pow(Math.E, expC);
-			// TODO 50
-			double res = Math.floor(fac * eFac * 50);
+			// TODO normalization
+			double res = Math.floor(fac * eFac * width * 10);
 			k[i] = (int) res;
 		}
 
