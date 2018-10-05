@@ -1,6 +1,6 @@
 # imgfx
 A program for manipulating images with a variety of filters or effects.
-
+[testaus](dokumentaatio/testaus.md)
 
 # Usage instructions (subject to change)
 Requires gradle and java.
@@ -24,7 +24,6 @@ To run pixelsort:
 java -jar build/libs/imgfx.jar psort <path to picture> <a number (0-255)>
 ```
 
-[testaus](dokumentaatio/testaus.md)
 # Weekly reports
 [Viikkoraportti1](dokumentaatio/Viikkoraportti1.md)
 
@@ -33,3 +32,5 @@ java -jar build/libs/imgfx.jar psort <path to picture> <a number (0-255)>
 [Viikkoraportti3](dokumentaatio/Viikkoraportti3.md)
 
 [Viikkoraportti4](dokumentaatio/Viikkoraportti4.md)
+
+[Viikkoraportti5](dokumentaatio/Viikkoraportti5.md)
