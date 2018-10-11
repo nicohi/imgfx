@@ -2,6 +2,7 @@ package nicohi.imgfx.filters;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import nicohi.imgfx.Kernel;
 import nicohi.imgfx.Picture;
 /**
  *
@@ -16,17 +17,41 @@ public class GaussBlur {
 	 * @param stdev
 	 * @return
 	 */
-	public static int[][] kernel2D(int l, int stdev) {
-		//TODO
-		return null;	
+	public static int[][] kernel2D(double stdev) {
+		int width = (int) Math.ceil(6.0 * stdev);
+		if (width % 2 == 0) width++;
+		int[][] k = new int[width][width];
+		
+		double fac = 1.0 / Math.sqrt(2 * Math.PI * stdev * stdev);
+		
+		double expIC = -1.0 / (2 * stdev * stdev);
+
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < width; j++) {
+				double expC = (Math.pow(i - width / 2, 2) + Math.pow(j - width / 2, 2)) * expIC;
+				double eFac = Math.pow(Math.E, expC);
+				// TODO normalization
+				double res = Math.floor(fac * eFac * width * 10);
+				k[i][j] = (int) res;
+			}
+		}
+		//System.out.println(Arrays.toString(k));	
+		return k;
+	}
+
+	public static int[][] gaussianBlur2D(int[][] img, double w) {
+		int[][] k = kernel2D(w);
+		int [][] res = img;
+		res = Kernel.applyKernel2D(img, k);
+		return res;
 	}
 
 	public static int[][] gaussianBlur1D(int[][] img, int w) {
 		int[] k = kernel1D2(w);
 		int [][] res = img;
-		res = applyKernel1D(img, k);
+		res = Kernel.applyKernel1D(img, k);
 		res = Picture.rotateRight(res);
-		res = applyKernel1D(res, k);
+		res = Kernel.applyKernel1D(res, k);
 		res = Picture.rotateLeft(res);
 		return res;
 	}
@@ -39,7 +64,7 @@ public class GaussBlur {
 	 */
 	public static int[][] applyKernel1D(int[][] img, int[] k) {
 		int[][] res = new int[img.length][img[0].length];
-		System.out.println(Arrays.toString(k));
+		//System.out.println(Arrays.toString(k));
 		for (int y = 0; y < res.length; y++) {
 			for (int x = 0; x < res[0].length; x++) {
 				int a = img[y][x] & 0xFF000000;
