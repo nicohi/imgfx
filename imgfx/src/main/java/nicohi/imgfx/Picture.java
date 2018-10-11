@@ -31,6 +31,21 @@ public class Picture {
 		return new int[0][0];
 	}
 
+	public static int[][] grayscale(int[][] img) {
+		int[][] res = new int[img.length][img[0].length];
+		for (int y = 0; y < res.length; y++) {
+			for (int x = 0; x < res[0].length; x++) {
+				int a = img[y][x] & 0xff000000;
+				int b = (img[y][x] & 0xff);
+				int g = (img[y][x] & 0xff00) >> 8;
+				int r = (img[y][x] & 0xff0000) >> 16;
+				int avg = (r + g + b) / 3;
+				res[y][x] = a + (avg << 16) + (avg << 8) + avg;
+			}
+		}
+		return res;
+	}
+
 	/**
 	 * Write a picture to a file.
 	 * @param file
