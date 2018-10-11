@@ -4,7 +4,9 @@ import nicohi.imgfx.Picture;
 import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
+import nicohi.imgfx.benchmark.GaussBlurBenchmark;
 import nicohi.imgfx.benchmark.PixelSortBenchmark;
+import nicohi.imgfx.filters.EdgeDetect;
 import nicohi.imgfx.filters.GaussBlur;
 import nicohi.imgfx.filters.PixelSort;
 
@@ -23,14 +25,24 @@ public class Main {
 				PixelSort.pixelMergeSortThreshold(Integer.parseInt(args[2]), pic);
 				Picture.writeToFile(new File("out.png"), pic);
 			}
-			if (args[0].equals("gblur")) {
+			if (args[0].equals("gblur2d")) {
 				URL f = new File(args[1]).toURI().toURL();
 				int[][] pic = Picture.readFromPath(f);
 				//System.out.println(Arrays.toString(pic));
-				int[][] res = GaussBlur.gaussianBlur1D(pic, Integer.parseInt(args[2]));
+				//int[][] res = GaussBlur.gaussianBlur1D(pic, Integer.parseInt(args[2]));
+				int[][] kernel = GaussBlur.kernel2D(Double.parseDouble(args[2]));
+				for (int i = 0; i < kernel.length; i++) 
+					System.out.println(Arrays.toString(kernel[i]));
+				int[][] res = GaussBlur.gaussianBlur2D(pic, Double.parseDouble(args[2]));
 				//int[][] res = GaussBlur.applyKernel1D(Picture.rotateRight(pic), GaussBlur.kernel1D(Double.parseDouble(args[2])));
 				//System.out.println(pic.length + " " + pic[0].length);
 				//System.out.println(Arrays.toString(GaussBlur.kernel1D(Double.parseDouble(args[1]))));
+				Picture.writeToFile(new File("out.png"), res);
+			}
+			if (args[0].equals("gblur1d")) {
+				URL f = new File(args[1]).toURI().toURL();
+				int[][] pic = Picture.readFromPath(f);
+				int[][] res = GaussBlur.gaussianBlur1D(pic, Integer.parseInt(args[2]));
 				Picture.writeToFile(new File("out.png"), res);
 			}
 //			if (args[0].equals("rrot")) {
@@ -43,6 +55,13 @@ public class Main {
 				URL f = new File(args[1]).toURI().toURL();
 				int[][] img = Picture.readFromPath(f);
 				PixelSortBenchmark.mergeVsSelSort(img);
+				GaussBlurBenchmark.benchmark2(img);
+			}
+			if (args[0].equals("edge")) {
+				URL f = new File(args[1]).toURI().toURL();
+				int[][] img = Picture.grayscale(GaussBlur.gaussianBlur1D(Picture.readFromPath(f), 40));
+				int[][] res = EdgeDetect.edgeDetect(img, EdgeDetect.kernelV2);
+				Picture.writeToFile(new File("out.png"), res);
 			}
 			
 		} catch (Exception ex) {
