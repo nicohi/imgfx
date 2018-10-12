@@ -34,3 +34,5 @@ $ java -jar build/libs/imgfx.jar psort <path to picture> <a number (0-255)>
 [Viikkoraportti4](dokumentaatio/Viikkoraportti4.md)
 
 [Viikkoraportti5](dokumentaatio/Viikkoraportti5.md)
+
+[Viikkoraportti6](dokumentaatio/Viikkoraportti6.md)
