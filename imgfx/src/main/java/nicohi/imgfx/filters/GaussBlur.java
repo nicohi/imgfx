@@ -13,7 +13,6 @@ public class GaussBlur {
 
 	/**
 	 *
-	 * @param l
 	 * @param stdev
 	 * @return
 	 */
@@ -39,6 +38,12 @@ public class GaussBlur {
 		return k;
 	}
 
+	/**
+	 *
+	 * @param img
+	 * @param w
+	 * @return
+	 */
 	public static int[][] gaussianBlur2D(int[][] img, double w) {
 		int[][] k = kernel2D(w);
 		int [][] res = img;
@@ -46,7 +51,13 @@ public class GaussBlur {
 		return res;
 	}
 
-	public static int[][] gaussianBlur1D(int[][] img, int w) {
+	/**
+	 *
+	 * @param img
+	 * @param w
+	 * @return
+	 */
+	public static int[][] gaussianBlur1D(int[][] img, double w) {
 		int[] k = kernel1D2(w);
 		int [][] res = img;
 		res = Kernel.applyKernel1D(img, k);
@@ -159,6 +170,11 @@ public class GaussBlur {
 		return k;
 	}
 
+	/**
+	 *
+	 * @param i
+	 * @return
+	 */
 	public static BigInteger factorial(BigInteger i) {
 		//System.out.println(i);
 		if (i.equals(BigInteger.ZERO)) return BigInteger.ONE; 
@@ -171,7 +187,6 @@ public class GaussBlur {
 	 * @return
 	 */
 	public static int[] kernel1D2(double stdev) {
-		//TODO implement proper discrete version
 		//In practice only pixels up to six standard deviations away need to be included. https://en.wikipedia.org/wiki/Gaussian_blur
 		int width = (int) Math.ceil(6.0 * stdev);
 		if (width % 2 == 0) width++;

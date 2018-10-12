@@ -113,6 +113,11 @@ public class PixelSort {
 		setRange(b, mergeSort(copyRange(b, t, row)), row);
 	}
 
+	/**
+	 *
+	 * @param l
+	 * @return
+	 */
 	public static int[] mergeSort(int[] l) {
 		if (l.length <= 1) return l;
 		int len = l.length / 2;
@@ -120,6 +125,12 @@ public class PixelSort {
 					 mergeSort(copyRange(len, l.length, l)));
 	}
 
+	/**
+	 *
+	 * @param l1
+	 * @param l2
+	 * @return
+	 */
 	public static int[] merge(int[] l1, int[] l2) {
 		//if (l1.length == 0) return l2;
 		//if (l2.length == 0) return l1;
@@ -152,10 +163,23 @@ public class PixelSort {
 		return res;
 	}
 
+	/**
+	 *
+	 * @param b
+	 * @param rowSeg
+	 * @param row
+	 */
 	public static void setRange(int b, int[] rowSeg, int[] row) {
 		for (int i = b; i < rowSeg.length + b; i++) row[i] = rowSeg[i - b];
 	}
 
+	/**
+	 *
+	 * @param b
+	 * @param t
+	 * @param row
+	 * @return
+	 */
 	public static int[] copyRange(int b, int t, int[] row) {
 		int[] res = new int[t - b];
 		for (int i = b; i < t; i++) res[i - b] = row[i];

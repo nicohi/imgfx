@@ -31,6 +31,11 @@ public class Picture {
 		return new int[0][0];
 	}
 
+	/**
+	 *
+	 * @param img
+	 * @return
+	 */
 	public static int[][] grayscale(int[][] img) {
 		int[][] res = new int[img.length][img[0].length];
 		for (int y = 0; y < res.length; y++) {
@@ -206,14 +211,32 @@ public class Picture {
 		}	
 	}
 
+	/**
+	 *
+	 * @param p
+	 * @param r
+	 * @return
+	 */
 	public static int setR(int p, int r) {
 		return (p & 0xFF00FFFF) + (r & 0x00FF0000);
 	}
 
+	/**
+	 *
+	 * @param p
+	 * @param g
+	 * @return
+	 */
 	public static int setG(int p, int g) {
 		return (p & 0xFFFF00FF) + (g & 0x0000FF00);
 	}
 
+	/**
+	 *
+	 * @param p
+	 * @param b
+	 * @return
+	 */
 	public static int setB(int p, int b) {
 		return (p & 0xFFFFFF00) + (b & 0x000000FF);
 	}

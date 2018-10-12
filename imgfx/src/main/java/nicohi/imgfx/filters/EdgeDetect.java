@@ -20,6 +20,18 @@ public class EdgeDetect {
 									  {-1,8,-1},
 									  {-1,-1,-1}};
 
+	public static int[][] kernelV4 = {{1,0,0,0,0,0,-1},
+									  {0,1,0,0,0,-1,0},
+									  {0,0,1,0,-1,0,0},
+									  {0,0,0,0,0,0,0},
+									  {0,0,-1,0,1,0,0},
+									  {0,-1,0,0,0,1,0},
+									  {-1,0,0,0,0,0,1}};
+
+	public static int[][] sobelY = {{-1,2,-1},
+									{0,0,0},
+									{-1,2,-1}};
+
 	public static int[][] edgeDetect(int[][] img, int[][] k) {
 		int[][] res = Kernel.applyKernel2D(img, k);
 		return res;
