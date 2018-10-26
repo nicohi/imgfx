@@ -33,12 +33,10 @@ $ java -jar imgfx.jar gblur2d <path to picture> <a number (1-50)>
 To run pixelsort:
 ```
 $ java -jar imgfx.jar psort <path to picture> <a number (0-255)>
-
 ```
 To run edgedetect:
 ```
 $ java -jar imgfx.jar edge <path to picture>
-
 ```
 # Documentation
 
