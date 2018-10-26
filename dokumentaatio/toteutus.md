@@ -12,5 +12,6 @@ Luokka sisältää selectionsort sekä mergesortin pixeleille. Jotta efekti olis
 ## Picture
 Luokka mahdollistaa kuvatiedostojen muuntamisen javan int taulukoksi. Luokassa on myös yleisiä kuvien metodeja (kuten grayscale() ja rotate()).
 
-# Testaus
+# Yksikkötestaus
 ![kattavuus](kattavuus.png?raw=true)
+Util pakkauksen kuvan import ja export toiminnot on testattu manuaalisesti. Benchmark toimintoa ei mielestäni tarvinnut testata, sillä se käyttää valmiiksi testattuja metodeja eikä tee mitään erikoista.

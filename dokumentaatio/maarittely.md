@@ -3,13 +3,15 @@ Ohjelma käsittelee kuvia eri tavoilla (Gaussian blur, pixel sort, ja mahdollise
 Käyttöliittymä antaa käyttäjän määritellä efektien parametrit. Huolena ovat suurikokoiset tiedostot.
 
 ## Algoritmit
-- tehokas Gaussian blur algoritmi (http://rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/) 
+- tehokas 1D Gaussian blur algoritmi (http://rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/) 
+- hitaampi 2D gaussian blur
+- edgedetect hyödyntäen samoja kernel-metodeja kuin gaussblur
 - Merge- ja Quicksort kuvien väriarvoille
 
 ## Tietorakenteet
 - taulukko kuvien pixelien säilömiseen (kuva on periaatteessa jo taulukko väriarvoja)
 
-Valitsin kyseiset tietorakenteet koska ne ovat mahdollisimman tehokkaat tavat säilöä paljon dataa (kuvat ovat usein monta megatavua).
+Valitsin kyseiset tietorakenteet koska ne ovat mahdollisimman tehokkaat tavat säilöä paljon dataa (kuvat ovat usein monia megatavuja).
 
 ## Aika- ja tilavaativuudet
 Gaussian blur algoritmille toivottu aikavaativuus olisi O(n) ja tilavaativuus olisi myös O(n).
