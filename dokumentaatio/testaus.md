@@ -1,6 +1,6 @@
-TODO
 
-| Kuvan koko    | Mergesort | Selsort | 1D Gauss | 2D Gauss |
+## Benchmark metodin dataa
+| Kuvan koko    | Mergesort | Selsort | 1D Gauss (kernel 31) | 2D Gauss (kernel 31*31) |
 | ------------- |:---------:| -------:| -------- | -------- |
 | 200*200       | 25ms      | 23ms    | 40ms     | 330ms    |
 | 287*303       | 42ms      | 35ms    | 64ms     | 717ms    |
@@ -10,7 +10,9 @@ TODO
 | 1920*1200     | 347ms     | 947ms   | 1292ms   | 18840ms  |
 
 ## Pixelsort
-Mergesort on huomattavasti nopeampi kuin selectionsort suurilla kuvilla. Selectionsort on hieman nopeampi hyvin pienillä kuvilla. T
+Mergesort on huomattavasti nopeampi kuin selectionsort suurilla kuvilla kuten olettaisikin (sillä mergesortin aikavaativuus on O(nlogn) ja selectionsort on O(n^2)).
+
+Kiinnostavaa on että selectionsort on hieman nopeampi hyvin pienillä kuvilla. Tämä johtuu varmaankin mergesortin rekursiivisista kutsuista joissa menee suhteessa muuhun laskentaan enemmän aikaa pienillä listoilla.
 
 ## GaussBlur
-
+1D on paljon nopeampi kuin 2D gaussblur. O(nm) (missä n on kernelin leveys ja m on kuvan koko) on 1D algoritmin aikavaativuus. 2D algoritmille tämä on O(n^2m) sillä kerneli on kaksiulotteinen.

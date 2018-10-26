@@ -10,4 +10,3 @@ Luokka sisältää applyKernel() metodin 1D ja 2D kerneleille. Metodi käy jokai
 Luokka sisältää selectionsort sekä mergesortin pixeleille. Jotta efekti olisi kiinnostavamman näköinen, luokka pystyy järjestämään vain alueet jotka ovat yli tietyn kirkkauden.
 ## Picture
 Luokka mahdollistaa kuvatiedostojen muuntamisen javan int taulukoksi. Luokassa on myös yleisiä kuvien metodeja (kuten grayscale() ja rotate()).
-
