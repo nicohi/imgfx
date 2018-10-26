@@ -19,13 +19,14 @@ public class TextUserInterface {
 	public static String helpString = 
 			"imgfx - image effect program\n"
 			+ "\n"
+			+ "writes to out.png"
 			+ "list of arguments:\n"
-			+ "\trrot [source image] [destination] - rotate image right by 90 degrees\n"
-			+ "\tlrot [source image] [destination] - rotate image left by 90 degrees\n"
-			+ "\tpsort [source image] [threshold value (0-765)] [destination] - pixel sort effect with threshold\n"
-			+ "\tgblur2d [source image] [stdev value(0.0-50.0)] [destination] - gaussian blur with 2D kernel (slower)\n"
-			+ "\tgblur1d [source image] [stdev value(0.0-50.0)] [destination] - gaussian blur with 1D kernel (faster)\n"
-			+ "\tedge [source image] [destination] - edge detection\n"
+			+ "\trrot [source image] - rotate image right by 90 degrees\n"
+			+ "\tlrot [source image] - rotate image left by 90 degrees\n"
+			+ "\tpsort [source image] [threshold value (0-765)] - pixel sort effect with threshold\n"
+			+ "\tgblur2d [source image] [stdev value(0.0-50.0)] - gaussian blur with 2D kernel (slower)\n"
+			+ "\tgblur1d [source image] [stdev value(0.0-50.0)] - gaussian blur with 1D kernel (faster)\n"
+			+ "\tedge [source image] - edge detection\n"
 			+ "\tbench [source image] - run benchmarking\n"
 			+ "";
 	
