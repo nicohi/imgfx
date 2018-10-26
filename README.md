@@ -11,19 +11,32 @@ $ gradle build
 ```
 ## Running program
 New image is written to out.png in your current path.
+
+To view help:
+```
+$ java -jar imgfx.jar
+```
 To run benchmark:
 ```
-$ java -jar build/libs/imgfx.jar bench <path to picture>
+$ java -jar imgfx.jar bench <path to picture>
 ```
 
-To run gaussian blur:
+To run 1D gaussian blur:
 ```
-$ java -jar build/libs/imgfx.jar gblur <path to picture> <a number (1-50)>
+$ java -jar imgfx.jar gblur1d <path to picture> <a number (1-50)>
 ```
-
+To run 2D gaussian blur:
+```
+$ java -jar imgfx.jar gblur2d <path to picture> <a number (1-50)>
+```
 To run pixelsort:
 ```
-$ java -jar build/libs/imgfx.jar psort <path to picture> <a number (0-255)>
+$ java -jar imgfx.jar psort <path to picture> <a number (0-255)>
+
+```
+To run edgedetect:
+```
+$ java -jar imgfx.jar edge <path to picture>
 
 ```
 # Documentation
