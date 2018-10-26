@@ -3,7 +3,7 @@ package nicohi.imgfx.ui;
 import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
-import nicohi.imgfx.Picture;
+import nicohi.imgfx.util.Picture;
 import nicohi.imgfx.benchmark.GaussBlurBenchmark;
 import nicohi.imgfx.benchmark.PixelSortBenchmark;
 import nicohi.imgfx.filters.EdgeDetect;

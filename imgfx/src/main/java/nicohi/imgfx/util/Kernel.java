@@ -1,4 +1,4 @@
-package nicohi.imgfx;
+package nicohi.imgfx.util;
 
 import java.util.Arrays;
 
@@ -8,6 +8,12 @@ import java.util.Arrays;
  */
 public class Kernel {
 
+	/**
+	 * Apply 2D kernel to image
+	 * @param img image
+	 * @param k kernel
+	 * @return new image
+	 */
 	public static int[][] applyKernel2D(int[][] img, int[][] k) {
 		int[][] res = new int[img.length][img[0].length];
 		//iterate thru image

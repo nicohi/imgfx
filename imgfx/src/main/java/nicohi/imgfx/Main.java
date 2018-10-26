@@ -1,6 +1,6 @@
 package nicohi.imgfx;
 
-import nicohi.imgfx.Picture;
+import nicohi.imgfx.util.Picture;
 import java.io.File;
 import java.net.URL;
 import java.util.Arrays;

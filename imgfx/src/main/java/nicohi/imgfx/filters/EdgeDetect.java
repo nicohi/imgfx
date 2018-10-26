@@ -1,6 +1,6 @@
 package nicohi.imgfx.filters;
 
-import nicohi.imgfx.Kernel;
+import nicohi.imgfx.util.Kernel;
 
 /**
  *

@@ -1,7 +1,7 @@
 package nicohi.imgfx.benchmark;
 
-import nicohi.imgfx.Kernel;
-import nicohi.imgfx.Picture;
+import nicohi.imgfx.util.Kernel;
+import nicohi.imgfx.util.Picture;
 import nicohi.imgfx.filters.GaussBlur;
 
 /**

@@ -2,8 +2,8 @@ package nicohi.imgfx.filters;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import nicohi.imgfx.Kernel;
-import nicohi.imgfx.Picture;
+import nicohi.imgfx.util.Kernel;
+import nicohi.imgfx.util.Picture;
 /**
  *
  * @author nicohi

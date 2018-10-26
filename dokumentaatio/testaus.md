@@ -1,45 +1,16 @@
 TODO
-### Benchmark dataa
-```
-$ java -jar imgfx/build/libs/imgfx.jar bench tst2.jpg 
 
-Image size is 2038x4512
+| Kuvan koko    | Mergesort | Selsort | 1D Gauss | 2D Gauss |
+| ------------- |:---------:| -------:| -------- | -------- |
+| 200*200       | 25ms      | 23ms    | 40ms     | 330ms    |
+| 287*303       | 42ms      | 35ms    | 64ms     | 717ms    |
+| 287*380       | 39ms      | 39ms    | 81ms     | 897ms    |
+| 720*1280      | 165ms     | 225ms   | 513ms    | 7600ms   |
+| 960*953       | 178ms     | 282ms   | 526ms    | 7724ms   |
+| 1920*1200     | 347ms     | 947ms   | 1292ms   | 18840ms  |
 
-Testing mergesort
+## Pixelsort
+Mergesort on huomattavasti nopeampi kuin selectionsort suurilla kuvilla. Selectionsort on hieman nopeampi hyvin pienillä kuvilla. T
 
-        time taken: 1233ms
+## GaussBlur
 
-Testing selectionsort
-
-        time taken: 4366ms
-
-```
-```
-$ java -jar imgfx/build/libs/imgfx.jar bench tst.jpg 
-
-Image size is 960x953
-
-Testing mergesort
-
-        time taken: 183ms
-
-Testing selectionsort
-
-        time taken: 280ms
-```
-```
-$ java -jar imgfx/build/libs/imgfx.jar bench s.jpg 
-
-Image size is 1920x1200
-
-Testing mergesort
-
-        time taken: 343ms
-
-Testing selectionsort
-
-        time taken: 962ms
-
-```
-
-Mergesort on huomattavasti nopeampi kuin selectionsort.

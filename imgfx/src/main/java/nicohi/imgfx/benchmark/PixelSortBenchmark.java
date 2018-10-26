@@ -1,6 +1,6 @@
 package nicohi.imgfx.benchmark;
 
-import nicohi.imgfx.Picture;
+import nicohi.imgfx.util.Picture;
 import nicohi.imgfx.filters.PixelSort;
 
 /**

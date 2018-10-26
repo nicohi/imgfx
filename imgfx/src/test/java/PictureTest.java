@@ -1,4 +1,4 @@
-import nicohi.imgfx.Picture;
+import nicohi.imgfx.util.Picture;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -16,19 +16,19 @@ public class PictureTest {
 	public void setUp() {
 	}
 
-//	@Test
-//	public void rotateRightTest1() {
-//		int[][] img1 = {{1,2,3}, {1,2,4}};
-//		int[][] img2 = {{1,1}, {2,2}, {4,3}};
-//		assertArrayEquals(img2, Picture.rotateRight(img1));
-//	}
-//
-//	@Test
-//	public void rotateLeftTest1() {
-//		int[][] img1 = {{1,2,3}, {1,2,4}};
-//		int[][] img2 = {{3,4}, {2,2}, {1,1}};
-//		assertArrayEquals(img2, Picture.rotateLeft(img1));
-//	}
+	@Test
+	public void rotateRightTest1() {
+		int[][] img1 = {{1,2,3}, {1,2,4}};
+		int[][] img2 = {{1,1}, {2,2}, {4,3}};
+		assertArrayEquals(img2, Picture.rotateRight(img1));
+	}
+
+	@Test
+	public void rotateLeftTest1() {
+		int[][] img1 = {{1,2,3}, {1,2,4}};
+		int[][] img2 = {{3,4}, {2,2}, {1,1}};
+		assertArrayEquals(img2, Picture.rotateLeft(img1));
+	}
 	
 	@Test
 	public void copyImgTest1() {

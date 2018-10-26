@@ -34,14 +34,6 @@ public class PixelSortTest {
 	}
 	
 	@Test
-	public void redSortTest1() {
-		int[][] img1 = {{2,3,1}, {4,2,1}};
-		int[][] img2 = {{1,2,3}, {1,2,4}};
-		PixelSort.redSort(img1);
-		assertArrayEquals(img2, img1);
-	}
-
-	@Test
 	public void selSortRangeTest1() {
 		int[] img1 = {2,3,1,1};
 		int[] img2 = {1,2,3,1};

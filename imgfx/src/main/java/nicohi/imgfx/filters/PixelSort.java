@@ -2,26 +2,13 @@ package nicohi.imgfx.filters;
 
 import java.util.Arrays;
 import java.util.function.IntUnaryOperator;
-import nicohi.imgfx.Picture;
+import nicohi.imgfx.util.Picture;
 
 /**
  *
  * @author nicohi
  */
 public class PixelSort {
-    //TODO add generic comparators to sort
-	
-	/**
-	 * Sorts horizontal rows of image based on the red value of each pixel
-	 * @param img
-	 */
-	public static void redSort(int[][] img) {
-		//TODO implement own sort
-		for (int y = 0; y < img.length; y++) {
-			Arrays.sort(img[y]);
-		}	
-	}	
-
 	/**
 	 * Apply pixel sort to an image with a brightness threshold.
 	 * @param tr
