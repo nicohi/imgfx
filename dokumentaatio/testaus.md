@@ -1,7 +1,7 @@
 
 ## Benchmark metodin dataa
 | Kuvan koko    | Mergesort | Selsort | 1D Gauss (kernel 31) | 2D Gauss (kernel 31*31) |
-| ------------- |:---------:| -------:| -------- | -------- |
+|:------------- | ---------:| -------:| --------:| --------:|
 | 200*200       | 25ms      | 23ms    | 40ms     | 330ms    |
 | 287*303       | 42ms      | 35ms    | 64ms     | 717ms    |
 | 287*380       | 39ms      | 39ms    | 81ms     | 897ms    |
