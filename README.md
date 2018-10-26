@@ -2,6 +2,7 @@
 A program for manipulating images with a variety of filters or effects.
 
 # Usage instructions
+Download the latest [release](https://github.com/nicohi/imgfx/releases/tag/1.0) or build from source.
 ## Building from source
 Requires gradle and java.
 ```
