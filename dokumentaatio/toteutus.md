@@ -13,3 +13,4 @@ Luokka sisältää selectionsort sekä mergesortin pixeleille. Jotta efekti olis
 Luokka mahdollistaa kuvatiedostojen muuntamisen javan int taulukoksi. Luokassa on myös yleisiä kuvien metodeja (kuten grayscale() ja rotate()).
 
 # Testaus
+![kattavuus](kattavuus.png?raw=true)

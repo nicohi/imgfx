@@ -46,7 +46,7 @@ public class GaussBlurBenchmark {
 		int[][] img2 = Picture.copyImg(img);
 		System.out.println("\nImage size is " + img[0].length + "x" + img.length);
 		System.out.println("\nTesting 1D Gaussian blur");
-		System.out.println("Kernel size is: " + GaussBlur.kernel1D2(len).length);
+		System.out.println("Kernel size is: " + GaussBlur.kernel1D(len).length);
 		long t1 = System.currentTimeMillis();
 		GaussBlur.gaussianBlur1D(img1, len);
 		t1 = System.currentTimeMillis() - t1;

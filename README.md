@@ -2,12 +2,15 @@
 A program for manipulating images with a variety of filters or effects.
 
 # Usage instructions
+## Building from source
 Requires gradle and java.
 ```
 $ git clone https://github.com/nicohi/imgfx
 $ cd imgfx/imgfx
 $ gradle build
 ```
+## Running program
+New image is written to out.png in your current path.
 To run benchmark:
 ```
 $ java -jar build/libs/imgfx.jar bench <path to picture>
