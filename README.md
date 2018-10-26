@@ -26,7 +26,9 @@ $ java -jar build/libs/imgfx.jar psort <path to picture> <a number (0-255)>
 # Documentation
 
 [maarittely](dokumentaatio/maarittely.md)
+
 [testaus](dokumentaatio/testaus.md)
+
 [toteutus](dokumentaatio/toteutus.md)
 
 
