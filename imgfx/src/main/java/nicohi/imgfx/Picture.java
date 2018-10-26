@@ -32,9 +32,9 @@ public class Picture {
 	}
 
 	/**
-	 *
+	 * Averages RGB channels, alpha channel unchanged.
 	 * @param img
-	 * @return
+	 * @return grayscale int[][]
 	 */
 	public static int[][] grayscale(int[][] img) {
 		int[][] res = new int[img.length][img[0].length];
@@ -167,7 +167,6 @@ public class Picture {
 	}
 
 	/**
-	 * 
 	 * Rotate image 90deg left.
 	 * @param img
 	 * @return
@@ -200,8 +199,8 @@ public class Picture {
 
 	/**
 	 * Copy the contents of one array to the other.
-	 * @param in
-	 * @param out
+	 * @param in image to be copied
+	 * @param out target
 	 */
 	public static void copyTo(int[][] in, int[][] out) {
 		for (int y = 0; y < in.length; y++) {
@@ -212,30 +211,30 @@ public class Picture {
 	}
 
 	/**
-	 *
-	 * @param p
-	 * @param r
-	 * @return
+	 * Set red channel to a value
+	 * @param p pixel
+	 * @param r pixel with red
+	 * @return modified pixel
 	 */
 	public static int setR(int p, int r) {
 		return (p & 0xFF00FFFF) + (r & 0x00FF0000);
 	}
 
 	/**
-	 *
-	 * @param p
-	 * @param g
-	 * @return
+	 * Set green channel to a value
+	 * @param p pixel
+	 * @param g pixel with blue
+	 * @return modified pixel
 	 */
 	public static int setG(int p, int g) {
 		return (p & 0xFFFF00FF) + (g & 0x0000FF00);
 	}
 
 	/**
-	 *
-	 * @param p
-	 * @param b
-	 * @return
+	 * Set blue channel to a value
+	 * @param p pixel
+	 * @param b pixel with blue
+	 * @return modified pixel
 	 */
 	public static int setB(int p, int b) {
 		return (p & 0xFFFFFF00) + (b & 0x000000FF);

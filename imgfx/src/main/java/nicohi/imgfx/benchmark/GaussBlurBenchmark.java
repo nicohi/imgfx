@@ -11,7 +11,7 @@ import nicohi.imgfx.filters.GaussBlur;
 public class GaussBlurBenchmark {
 
 	/**
-	 *
+	 * Benchmark 1D and 2D gaussian blur with given image. Uses 5 and 5x5 kernels.
 	 * @param img
 	 */
 	public static void benchmark1(int[][] img) {
@@ -37,7 +37,7 @@ public class GaussBlurBenchmark {
 	}
 	
 	/**
-	 *
+	 * Benchmark 1D and 2D gaussian blur with given image. Uses 30 and 30x30 kernels.
 	 * @param img
 	 */
 	public static void benchmark2(int[][] img) {

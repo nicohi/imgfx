@@ -38,7 +38,7 @@ public class TextUserInterface {
 			if (args[0].equals("psort")) {
 				URL f = new File(args[1]).toURI().toURL();
 				int[][] pic = Picture.readFromPath(f);
-				System.out.println(pic.length + " " + pic[0].length);
+				//System.out.println(pic.length + " " + pic[0].length);
 				PixelSort.pixelMergeSortThreshold(Integer.parseInt(args[2]), pic);
 				Picture.writeToFile(new File("out.png"), pic);
 			}
@@ -77,10 +77,11 @@ public class TextUserInterface {
 			}
 			if (args[0].equals("edge")) {
 				URL f = new File(args[1]).toURI().toURL();
-				int[][] img = Picture.grayscale(GaussBlur.gaussianBlur1D(Picture.readFromPath(f), 1.2));
-				int[][] res = EdgeDetect.edgeDetect(img, EdgeDetect.sobelY);
-				res = GaussBlur.gaussianBlur1D(res, 0.8);
-				res = EdgeDetect.edgeDetect(img, EdgeDetect.sobelY);
+				//int[][] img = Picture.grayscale(GaussBlur.gaussianBlur1D(Picture.readFromPath(f), 2.0));
+				int[][] img = Picture.grayscale(Picture.readFromPath(f));
+				int[][] res = EdgeDetect.edgeDetect(img, EdgeDetect.kernelV2);
+				//res = GaussBlur.gaussianBlur1D(res, 0.8);
+				//res = EdgeDetect.edgeDetect(img, EdgeDetect.sobelY);
 				Picture.writeToFile(new File("out.png"), res);
 			}
 			
